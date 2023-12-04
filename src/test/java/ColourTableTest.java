@@ -13,5 +13,11 @@ public class ColourTableTest {
         new ColourTable(1024);
     }
 
+    @Test
+    public void checkInvalidTableSizes(){
+        new ColourTable(1025);
+        new ColourTable(3);
+    }
+
 
 }
