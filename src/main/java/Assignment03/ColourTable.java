@@ -45,6 +45,7 @@ public class ColourTable {
     }
 
     private int createRGB(int red,int green,int blue){
+        // Combining components into a single integer
         return(red << 16) | (green << 8) | blue;
     }
 
@@ -60,6 +61,20 @@ public class ColourTable {
 
     private boolean CheckIfPaletteIsFull(){
         return count >= NoColours;
+    }
+
+    public String StringRepresentationOfPalette(){
+        StringBuilder colourPalette = new StringBuilder();
+        for (int i =1; i < count; i++){
+            int rgb = palette[i];
+            int red = (rgb>>16) & 0xFF;
+            int green = (rgb>>8) & 0xFF;
+            int blue = rgb & 0xFF;
+            colourPalette.append(String.format("%d;(%d, %d, %d)\n",i,red,green,blue));
+        }
+        colourPalette.append("\n");
+        System.out.println(colourPalette.toString());
+        return colourPalette.toString();
     }
 
 
