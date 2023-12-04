@@ -8,6 +8,11 @@ public class ColourTable {
     private int count;
     private int[] palette;
 
+    //If the size of the palette is not specified - throws an exception
+    public ColourTable() throws IllegalArgumentException{
+        throw new IllegalArgumentException("Palette size must be specified");
+    }
+
     public ColourTable(int NoColours){
         // Checking that the size of the palette is satisfying requirements
         if(NoColours>1024 || (NoColours&(NoColours-1)) !=0){
@@ -31,8 +36,6 @@ public class ColourTable {
             throw new IllegalArgumentException("Palette is full");
         }
         palette[count++] = rgb;
-
-
 
     }
     private void CheckRGBValues(int red,int green,int blue) {
